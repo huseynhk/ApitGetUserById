@@ -43,8 +43,8 @@ function Manager() {
   };
 
   return (
-    <div style={{ margin: "20px", textAlign: "center" }}>
-      <h1>Data Manager</h1>
+    <div className="text-center px-5 py-3">
+      <h2 className="text-white mb-3">Users Table</h2>
       {loading ? (
         <Spinner animation="border" />
       ) : (

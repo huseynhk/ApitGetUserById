@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GetSingleUser } from "../api/getRequest";
-import { Card } from "react-bootstrap";
+import { Card, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ROUTER } from "../constant/router";
 
@@ -21,22 +21,29 @@ const UserIdPage = () => {
   }, [id]);
 
   if (!userDetail) {
-    return <h4 className="text-center text-info mt-5">Loading...</h4>;
+    return <Spinner animation="border" />;
   }
 
   return (
     <div className="d-flex flex-column align-items-center my-5 text-info">
-      <button style={{width:"200px", marginTop:"-20px"}} className="btn btn-primary mb-3" onClick={() => navigate(ROUTER.Home)}>
+      <button
+        style={{ width: "200px", marginTop: "-20px" }}
+        className="btn btn-primary mb-3"
+        onClick={() => navigate(ROUTER.Home)}
+      >
         Go Back
       </button>
-      <Card style={{ width: "75%", borderRadius: "20px"}}>
+      <Card style={{ width: "75%", borderRadius: "20px" }}>
         <Card.Body>
           <Card.Title className="text-center mb-4">User Details</Card.Title>
-          <img
-            className="img-fluid rounded mx-auto d-block mb-4 imgCard"
-            src={userDetail.image}
-            alt={userDetail.firstName}
-          />
+
+          <div className="imgParent">
+            <img
+              className="img-fluid rounded mx-auto d-block mb-4 imgCard"
+              src={userDetail.image}
+              alt={userDetail.firstName}
+            />
+          </div>
           <Card.Text>
             <strong>ID:</strong> {userDetail.id}
           </Card.Text>
