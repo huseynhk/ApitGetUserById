@@ -1,0 +1,32 @@
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
+.role-cell.admin {
+  color: green;
+}
+
+.role-cell.moderator {
+  color: blue;
+}
+
+.role-cell.user {
+  color: red;
+}
+
+
+.eye-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.eye-icon:hover {
+  transform: scale(1.1);
+}
+
+.imgCard{
+  object-fit: cover;
+  width: 300px;
+  height: 100px;
+  border-radius: 10px;
+}
